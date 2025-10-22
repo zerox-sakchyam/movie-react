@@ -45,7 +45,10 @@ const movieDisplay = searchResult.length > 0 ? searchResult : movies;
     max-[600px]:grid-cols-2 
     max-[600px]:ml-5 
     max-sm:gap-10 
-    max-sm:grid-cols-2'>
+    max-[395px]:grid-cols-1
+    max-[395px]:ml-15
+    
+    '>
 
         {movieDisplay.map((movie) => (
             <div key={movie.id}>
@@ -60,8 +63,8 @@ const movieDisplay = searchResult.length > 0 ? searchResult : movies;
                 hover:scale-105 
                 max-md:w-50
                 max-md:h-65
-                max-sm:w-70 
-                max-sm:h-70' />
+                max-sm:h-70
+               '/>
                 <h3 className='text-white cursor-pointer'>{movie.original_title}</h3>
                 <p className='text-white'>⭐{movie.vote_average}</p>
 

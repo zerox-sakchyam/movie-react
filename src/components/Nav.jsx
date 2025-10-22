@@ -51,21 +51,32 @@ function Nav({setSearchResult}) {
       max-[805px]:text-[15px] 
       max-[805px]:gap-7 
       max-[580px]:gap-4
-      max-sm:text-[10px]
-      max-sm:mt-4
-      max-sm:gap-4
-      max-sm:ml-10
-      max-[433px]:text-[30px]
+      max-[395px]:text-[10px]
+      max-[395px]:ml-5
+      max-[439px]:text-[10px]
+      max-[439px]:mt-4
+      max-[405px]:mt-4
+      max-[335px]:gap-2
+      max-[335px]:ml-5
+      max-[360px]:gap-2
+      max-[360px]:ml-5
+
+
+     
+      
+     
+     
+     
       
       
       
       ">
         <li className="hover:text-gray-400">Home</li>
         <li className="hover:text-gray-400">Popular</li>
-        <li className="hover:text-gray-400">Redeem</li>
         <li className="hover:text-gray-400">Favourites</li>
         <form onSubmit={fetchMovies}>
-          <input className='w-40 border-1 border-white rounded-lg pl-1 text-[15px] max-[765px]:w-30  max-[650px]:w-25 max-[805px]:w-35 max-[580px]:w-15 max-[580px]:text-[10px] max-sm:pl-2  max-sm:w-19' type="text" placeholder="Search..." value={searchTerms} onChange={(e) => setSearchTerms(e.target.value)} />
+          <input className='w-40 border-1 border-white rounded-lg pl-1 text-[15px] max-[765px]:w-30  max-[650px]:w-25 max-[805px]:w-35 max-[580px]:w-15 max-[580px]:text-[10px] 
+          max-[395px]:border-green-500  max-[395px]:w-10 ' type="text" placeholder="Search..." value={searchTerms} onChange={(e) => setSearchTerms(e.target.value)} />
 
         </form>
       </ul>
