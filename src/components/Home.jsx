@@ -25,8 +25,8 @@ useEffect(() =>{
 const movieDisplay = searchResult.length > 0 ? searchResult : movies;
 
   return (
-    <div className='bg-[#091530] p-10 '>
-        <h1 className='text-white text-3xl font-serif font-bold text-4xl mb-10 max-sm:ml-5'>{searchResult.length > 0 ? 'Searched Results ' : 'Popular'}</h1>
+    <div className='bg-[#091530]  p-10 '>
+    <h1 className='text-white text-3xl font-serif font-bold text-4xl mb-10 max-sm:ml-5'>{searchResult.length > 0 ? 'Searched Results ' : 'Popular'}</h1>
     <div className='grid 
     p-8
     rounded-lg
@@ -46,6 +46,8 @@ const movieDisplay = searchResult.length > 0 ? searchResult : movies;
                 <img 
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 className=' 
+                w-64
+                h-80
                 cursor-pointer
                 rounded-lg 
                 object-cover
@@ -53,7 +55,7 @@ const movieDisplay = searchResult.length > 0 ? searchResult : movies;
                 duration-300 
                 hover:scale-105 
                '/>
-                <h3 className='text-white cursor-pointer'>{movie.original_title}</h3>
+                <h3 className='text-white cursor-pointer mt-2'>{movie.original_title}</h3>
                 <p className='text-white'>⭐{movie.vote_average}</p>
             </div>
 
@@ -66,7 +68,7 @@ const movieDisplay = searchResult.length > 0 ? searchResult : movies;
      
 
             <button className='text-white text-[18px]   w-[5%] h-[10%] absolute top-0 right-0 rounded-sm hover:bg-red-600 cursor-pointer' onClick={() => setSelectedMovies(null)}>X</button>
-            <img className='w-62 h-78 ml-5 max-sm:w-40 max-sm:h-50 max-sm:ml-9 rounded-md ' src={`https://image.tmdb.org/t/p/w500${selectedMovies.poster_path}`}
+            <img className='w-62 h-78 ml-5 max-sm:ml-9 rounded-md ' src={`https://image.tmdb.org/t/p/w500${selectedMovies.poster_path}`}
             alt={selectedMovies.title}
             ></img>
             <div className=' flex flex-col justify-center gap-8 ml-10 max-sm:gap-5'>

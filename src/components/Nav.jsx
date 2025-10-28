@@ -1,4 +1,5 @@
 import React , {useState} from "react";
+import { Link } from "react-router-dom";
 function Nav({setSearchResult}) {
   const[searchTerms , setSearchTerms] = useState('');
   const [error , setError] = useState(null);
@@ -61,9 +62,9 @@ function Nav({setSearchResult}) {
       max-[360px]:gap-2
       max-[360px]:ml-5
       ">
-        <li className="hover:text-gray-400">Home</li>
-        <li className="hover:text-gray-400">Popular</li>
-        <li className="hover:text-gray-400">Favourites</li>
+       <Link to='/page=1'><li className="hover:text-gray-400">Home</li></Link>
+        <Link to='/popular'> <li className="hover:text-gray-400">Popular</li></Link>
+        <Link to='/favourite'> <li className="hover:text-gray-400">Favourites</li></Link>
         <form onSubmit={fetchMovies}>
           <input className='w-40 border-1 text-black bg-white border-white rounded-lg pl-1 text-[15px] max-[765px]:w-30  max-[650px]:w-25 max-[805px]:w-35 max-[580px]:w-15 max-[580px]:text-[10px] 
           max-[395px]:border-green-500  max-[395px]:w-10 ' type="text" placeholder="Search..." value={searchTerms} onChange={(e) => setSearchTerms(e.target.value)} />
