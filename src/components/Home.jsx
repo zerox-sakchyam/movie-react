@@ -6,6 +6,20 @@ const Home = ({ searchResult, onAddFavourite }) => {
   const [selectedMovies, setSelectedMovies] = useState(null);
   const [add, setAdd] = useState([]);
   const[favSelect , setFavSelect] = useState(null);
+  const [displayFav , setDisplayFav] = useState(false);
+
+
+  function handleFavDisplay(){
+    setDisplayFav(true);
+
+
+    setTimeout(() => {
+      setDisplayFav(false);
+    }, 2000);
+  }
+
+
+
 
 
   useEffect(() => {
@@ -50,24 +64,30 @@ const Home = ({ searchResult, onAddFavourite }) => {
     max-sm:grid-cols-2
     max-sm:
     max-sm:p-5
+  
+  
     "
       >
         {/* Grid for the movie */}
         {movieDisplay.map((movie) => (
-          <div key={movie.id} className="relative  p-4 rounded-lg bg-[#1F2226] hover:scale-105 transition-transform duration-300 ">
+          <div key={movie.id} className="relative  p-3 rounded-lg bg-[#1F2226] hover:scale-105 transition-transform duration-300 max-md:bg-hidden">
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               onClick={() => setSelectedMovies(movie)}
               className=" 
                 w-59
                 h-80
-                
                 cursor-pointer
                 rounded-lg 
                 object-cover
                 transition-transform
                 duration-300 
-
+                max-sm:h-40
+                max-sm:w-40
+                max-md:w-55
+                max-md:h-59
+                max-lg:w-65
+                max-lg:h-65
                "
             />
             <h3 className="text-white cursor-pointer mt-2">
@@ -79,12 +99,17 @@ const Home = ({ searchResult, onAddFavourite }) => {
                 className="rounded-lg  text-white hover:color-white hover:text-[#C8D0DB]"
                 onClick={() => onAddFavourite(movie)}
               >
-                <span className="material-symbols-outlined text-yellow-400 hover:text-white transition-colors duration-300">kid_star</span>
+                <span onClick={handleFavDisplay} className="material-symbols-outlined text-yellow-400 hover:text-white transition-colors duration-300">kid_star</span>
               </button>
             </div>
           </div>
         ))}
       </div>
+
+      {/* Fav Display */}
+      {displayFav && (
+      <div className="fixed top-21 pl-7 pr-8 pt-4 pb-4 bg-gradient-to-r from-green-400 to-green-300 opacity-100 right-1 transform   text-white font-bold rounded-sm shadow-lg z-50 transition-all duration-300  ">Added To Favourite</div>
+      )}
 
 
        <div>

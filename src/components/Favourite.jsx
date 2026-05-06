@@ -1,6 +1,16 @@
- import React from "react";
+ import React, { useState } from "react";
 
 const Favourite = ({ favourites, onRemoveFavourite }) => {
+  const [removeFav , setRemoveFav ] = useState(false);
+
+  function handleRemoveFav (){
+    setRemoveFav(true);
+
+    setTimeout(() => {
+      setRemoveFav(false);
+
+    } , 3000);
+  }
   return (
     <div className="bg-[#091530] min-h-screen p-10">
       <h1 className="text-white text-3xl font-mono font-bold mb-10 ">
@@ -24,7 +34,12 @@ const Favourite = ({ favourites, onRemoveFavourite }) => {
               <p className="text-white">⭐{movie.vote_average}</p>
               <button
                 className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-md hover:bg-red-700"
-                onClick={() => onRemoveFavourite(movie.id)}
+                onClick={() => {onRemoveFavourite(movie.id);
+                  handleRemoveFav();
+                }
+
+                }
+              
               >
                 Remove
               </button>
@@ -33,6 +48,10 @@ const Favourite = ({ favourites, onRemoveFavourite }) => {
         </div>
       )}
       
+      {removeFav && (
+        <div className="fixed top-21 pl-7 pr-8 pt-4 pb-4 bg-gradient-to-r from-red-500 to-red-350 opacity-100 right-1 transform  text-white font-bold rounded-sm shadow-lg z-50 transition-all duration-300  ">Removed</div>
+
+      )}
       
     </div>
   );
